@@ -1,9 +1,12 @@
 import { NextFunction, Request, Response } from 'express';
-import { ZodType } from 'zod';
+import { ZodSchema } from 'zod';
 
-export const validateRequest = (schema: ZodType, property: 'body' | 'query' | 'params') => {
-    return (req: Request, _: Response, next: NextFunction) => {
-        schema.parse(req[property]);
-        next();
-      };
+export const validateRequest = (
+  schema: ZodSchema,
+  property: 'query' | 'body' | 'params' = 'body',
+) => {
+  return (req: Request, _: Response, next: NextFunction) => {
+    schema.parse(req[property]);
+    next();
+  };
 };

@@ -1,4 +1,4 @@
-services:
+kservices:
   postgres:
     image: postgres:18
     ports:
@@ -6,7 +6,7 @@ services:
     environment:
       POSTGRES_USER: sunhoh
       POSTGRES_PASSWORD: 12345
-      POSTGRES_DB: myapp
+      POSTGRES_DB: supermung
     volumes:
       - postgres_data:/var/lib/postgresql
 
